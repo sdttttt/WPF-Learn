@@ -1,17 +1,5 @@
-﻿using System;
+﻿using System.Windows;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_Study
 {
@@ -19,10 +7,27 @@ namespace WPF_Study
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {   
         public MainWindow()
         {
             InitializeComponent();
+
+            List<MyData> list = new List<MyData>();
+
+            list.Add(new MyData { UserName = "fuck", ClassName = "Fuck" });
+
+            list.Add(new MyData { UserName = "you", ClassName = "You" });
+
+            DataList.ItemsSource = list;
         }
+    }
+
+    public class MyData { 
+        
+        public string UserName { get; set; }
+
+        public string ClassName { get; set; }
+
+
     }
 }

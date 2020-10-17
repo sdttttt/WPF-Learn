@@ -17,7 +17,21 @@
         </ControlTemplate>
     </Window.Resources>
     <Grid>
-        <Button Content="Fuck" Height="85" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Template="{StaticResource DefaultButton}">
-        </Button>
+        <DataGrid Name="DataList" AutoGenerateColumns="False" CanUserSortColumns="True" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding UserName}" Width="100" Header="Name"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ClassName}" Width="100" Header="Class"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="操作" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button Content="編輯"></Button>
+                                <Button Content="刪除" Margin="8 0 0 0"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
